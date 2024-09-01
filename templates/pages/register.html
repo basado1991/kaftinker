@@ -1,0 +1,49 @@
+{{define "register-page"}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{template "header"}}
+  <link rel="stylesheet" href="/assets/css/register_page.css" />
+  <title>Регистрация</title>
+</head>
+
+<body>
+  <div id="content">
+    <div id="form-box">
+      {{if .UsernameNotProvided}}
+      <h4 class="text-error">Имя пользователя не введено!</h4>
+      {{end}}
+      {{if .PasswordNotProvided}}
+      <h4 class="text-error">Пароль не введен!</h4>
+      {{end}}
+      {{if .UsernameTaken}}
+      <h4 class="text-error">Имя пользователя занято!</h4>
+      {{end}}
+
+      <h2>Регистрация</h2>
+      <form class="pure-form pure-form-aligned" action="/register" method="post">
+        <fieldset>
+          <div class="pure-control-group">
+            <label for="aligned-username">Имя пользователя</label>
+            <input type="text" id="aligned-username" name="username" required />
+          </div>
+          <div class="pure-control-group">
+            <label for="aligned-password">Пароль</label>
+            <input type="password" id="aligned-password" name="password" required />
+          </div>
+          <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Создать аккаунт</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <a href="/auth">У меня уже есть аккаунт</a>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{{end}}

@@ -1,0 +1,47 @@
+{{define "create-post-page"}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{template "header"}}
+  <link rel="stylesheet" href="/assets/css/post_creation_page.css" />
+  <title>Создание поста</title>
+</head>
+
+<body>
+  <div id="content">
+    <div id="form-box">
+      <div id="top-bar">
+        <a href="/">На главную</a>
+      </div>
+
+      {{if .TitleNotProvided}}
+      <h4 class="text-error">Заголовок не введен!</h4>
+      {{end}}
+      {{if .BodyNotProvided}}
+      <h4 class="text-error">Содержимое не введено!</h4>
+      {{end}}
+
+      <form class="pure-form pure-form-aligned" action="/createPost" method="post">
+        <fieldset>
+          <div class="pure-control-group">
+            <label for="aligned-title">Заголовок</label>
+            <input type="text" id="aligned-title" name="title" required />
+          </div>
+          <div class="pure-control-group">
+            <label for="aligned-body">Содержимое</label>
+            <textarea id="aligned-body" name="body" cols="25" rows="7" required></textarea>
+          </div>
+          <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Создать</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{{end}}

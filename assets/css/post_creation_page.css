@@ -1,0 +1,23 @@
+#content {
+  height: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: #E7D27C;
+}
+
+#form-box {
+  background-color: white;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+#top-bar {
+  margin-bottom: 1.5em;
+}
+
+#aligned-body {
+  resize: none;
+}

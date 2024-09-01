@@ -1,0 +1,52 @@
+{{define "auth-page"}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{template "header"}}
+  <link rel="stylesheet" href="/assets/css/auth_page.css" />
+  <title>Авторизация</title>
+</head>
+
+<body>
+  <div id="content">
+    <div id="form-box">
+      {{if .UsernameNotProvided}}
+      <h4 class="text-error">Имя пользователя не введено!</h4>
+      {{end}}
+      {{if .PasswordNotProvided}}
+      <h4 class="text-error">Пароль не введен!</h4>
+      {{end}}
+      {{if .UserNotExists}}
+      <h4 class="text-error">Такого пользователя не существует!</h4>
+      {{end}}
+      {{if .WrongPassword}}
+      <h4 class="text-error">Неверный пароль!</h4>
+      {{end}}
+
+      <h2>Вход</h2>
+      <form class="pure-form pure-form-aligned" action="/auth" method="post">
+        <fieldset>
+          <div class="pure-control-group">
+            <label for="aligned-username">Имя пользователя</label>
+            <input type="text" id="aligned-username" name="username" required />
+          </div>
+          <div class="pure-control-group">
+            <label for="aligned-password">Пароль</label>
+            <input type="password" id="aligned-password" name="password" required />
+          </div>
+          <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Войти</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <a href="/register">У меня нет аккаунта</a>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{{end}}

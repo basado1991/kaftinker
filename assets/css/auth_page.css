@@ -1,0 +1,15 @@
+#content {
+  height: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: #85A1F2;
+}
+
+#form-box {
+  background-color: white;
+  padding: 2em;
+  border-radius: 10px;
+}

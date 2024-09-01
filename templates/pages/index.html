@@ -1,0 +1,37 @@
+{{define "index-page"}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{template "header"}}
+  <link rel="stylesheet" href="/assets/css/index_page.css" />
+  <title>Посты</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="card">
+      <div id="top-bar"><a href="/createPost"><button class="pure-button pure-button-primary">Создать пост</button></a>
+      </div>
+    </div>
+    {{range .Entries}}
+    <div class="card">
+      <div class="card-title">
+        <span>
+          <h4>{{.Post.Title}}</h4>
+        </span>
+        <span>
+          <p>Автор:
+          <h5>{{.User.Username}}</h5>
+          </p>
+        </span>
+      </div>
+      <span>{{.Post.Body}}</span>
+    </div>
+    {{end}}
+</body>
+
+</html>
+
+{{end}}
